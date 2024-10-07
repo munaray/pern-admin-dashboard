@@ -8,6 +8,13 @@ export interface Product {
 	rating?: number;
 }
 
+export interface NewProduct {
+	name: string;
+	price: number;
+	rating?: number;
+	stockQuantity: number;
+}
+
 export interface SalesSummary {
 	saleSummaryId: string;
 	totalValue: number;
@@ -41,6 +48,12 @@ export interface DashboardMetric {
 	purchaseSummary: PurchaseSummary[];
 	expenseSummary: ExpenseSummary[];
 	expenseByCategorySummary: ExpenseByCategorySummary[];
+}
+
+export interface User {
+	userId: string;
+	name: string;
+	email: string;
 }
 
 export interface StatDetail {
