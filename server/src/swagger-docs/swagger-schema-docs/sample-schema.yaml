@@ -1,0 +1,131 @@
+schemas:
+  Users:
+    userId:
+      type: String
+      id: true
+    name:
+      type: String
+    email:
+      type: String
+
+  Products:
+    productId:
+      type: String
+      id: true
+    name:
+      type: String
+    price:
+      type: Float
+    rating:
+      type: Float
+      nullable: true
+    stockQuantity:
+      type: Int
+    Sales:
+      type: Sales[]
+    Purchases:
+      type: Purchases[]
+
+  Sales:
+    saleId:
+      type: String
+      id: true
+    productId:
+      type: String
+    timestamp:
+      type: DateTime
+    quantity:
+      type: Int
+    unitPrice:
+      type: Float
+    totalAmount:
+      type: Float
+    product:
+      type: Products
+      relation:
+        fields: [productId]
+        references: [productId]
+
+  Purchases:
+    purchaseId:
+      type: String
+      id: true
+    productId:
+      type: String
+    timestamp:
+      type: DateTime
+    quantity:
+      type: Int
+    unitCost:
+      type: Float
+    totalCost:
+      type: Float
+    product:
+      type: Products
+      relation:
+        fields: [productId]
+        references: [productId]
+
+  Expenses:
+    expenseId:
+      type: String
+      id: true
+    category:
+      type: String
+    amount:
+      type: Float
+    timestamp:
+      type: DateTime
+
+  SalesSummary:
+    salesSummaryId:
+      type: String
+      id: true
+    totalValue:
+      type: Float
+    changePercentage:
+      type: Float
+      nullable: true
+    date:
+      type: DateTime
+
+  PurchaseSummary:
+    purchaseSummaryId:
+      type: String
+      id: true
+    totalPurchased:
+      type: Float
+    changePercentage:
+      type: Float
+      nullable: true
+    date:
+      type: DateTime
+
+  ExpenseSummary:
+    expenseSummaryId:
+      type: String
+      id: true
+    totalExpenses:
+      type: Float
+    date:
+      type: DateTime
+    ExpenseByCategory:
+      type: ExpenseByCategory[]
+
+  ExpenseByCategory:
+    expenseByCategoryId:
+      type: String
+      id: true
+    expenseSummaryId:
+      type: String
+    category:
+      type: String
+    amount:
+      type: BigInt
+    date:
+      type: DateTime
+    expenseSummary:
+      type: ExpenseSummary
+      relation:
+        fields: [expenseSummaryId]
+        references: [expenseSummaryId]

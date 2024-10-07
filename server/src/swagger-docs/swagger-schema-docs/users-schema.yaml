@@ -1,0 +1,9 @@
+schemas:
+  Users:
+    userId:
+      type: String
+      id: true
+    name:
+      type: String
+    email:
+      type: String
