@@ -6,8 +6,6 @@ import helmet from "helmet";
 import morgan from "morgan";
 
 import { middlewareErrorHandler } from "./middleware/error";
-import swaggerUi from "swagger-ui-express";
-import OPENAPI_DOCS_SPEC from "./swagger-docs/swagger";
 import routes from "./routes/index";
 
 export const app = express();
@@ -36,7 +34,6 @@ app.use(
 );
 
 // routes
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(OPENAPI_DOCS_SPEC));
 app.use("/api/v1", routes);
 
 // Testing api
