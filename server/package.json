@@ -4,8 +4,8 @@
   "main": "server.js",
   "module": "NodeNext",
   "scripts": {
-    "build": "tsc --build",
-    "start": "node ./dist/server.js",
+    "build": "tsup",
+    "start": "node ./build/server.js",
     "dev": "nodemon ./src/server.ts",
     "lint": "eslint",
     "seed": "ts-node prisma/seed.ts"
