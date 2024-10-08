@@ -1,9 +1,8 @@
 {
   "version": 2,
-  "name": "learning-management-system-api",
   "builds": [
     {
-      "src": "*.ts",
+      "src": "/scr/server.ts",
       "use": "@vercel/node"
     }
   ],
