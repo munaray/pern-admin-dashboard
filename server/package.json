@@ -4,7 +4,7 @@
   "main": "server.js",
   "module": "NodeNext",
   "scripts": {
-    "build": "rimraf ./dist && npx tsc",
+    "build": "tsc --build",
     "start": "node ./dist/server.js",
     "dev": "npm run build && concurrently \"npx tsc -w\" \"nodemon --exec ts-node src/server.ts\"",
     "lint": "eslint",
